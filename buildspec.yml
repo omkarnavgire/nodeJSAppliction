@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -7,25 +6,20 @@ phases:
     commands:
       - echo "Installing clean dependencies..."
       - npm ci
-
   pre_build:
     commands:
       - echo "Running security audits and linters..."
       - npm run lint --if-present
-
   build:
     commands:
       - echo "Building project and running test suites..."
       - npm test --if-present
       - npm run build --if-present
-
   post_build:
     commands:
       - echo "Build finished on $(date)"
-
 artifacts:
   files:
     - 'package.json'
     - 'package-lock.json'
     - 'dist/**/*'
-    - 'node_modules/**/*'
