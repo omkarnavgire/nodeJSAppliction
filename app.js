@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 
+const PORT = process.env.PORT || 8080;
+
 app.get('/', (req, res) => {
-    res.send('Hello this is  Node js!');
+    res.send('Hello this is Node.js!');
 });
 
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
